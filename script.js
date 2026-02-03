@@ -20,10 +20,21 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // Smooth parallax effect on hero
+    // Sticky header on scroll
+    const stickyHeader = document.getElementById('stickyHeader');
     const hero = document.querySelector('.hero');
+    
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
+        
+        // Show sticky header after scrolling past hero
+        if (scrolled > window.innerHeight * 0.6) {
+            stickyHeader.classList.add('visible');
+        } else {
+            stickyHeader.classList.remove('visible');
+        }
+        
+        // Smooth parallax effect on hero
         if (hero && scrolled < window.innerHeight) {
             hero.style.transform = `translateY(${scrolled * 0.4}px)`;
             hero.style.opacity = 1 - (scrolled / window.innerHeight) * 0.5;
