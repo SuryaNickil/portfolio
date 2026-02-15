@@ -29,20 +29,21 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log(`✓ Observing ${elementsToObserve.length} elements for scroll animations`);
 });
 
-// Parallax effect on scroll
+// Parallax effect on scroll - slower parallax to keep hero visible longer
 window.addEventListener('scroll', () => {
   const scrolled = window.pageYOffset;
   const parallaxElements = document.querySelectorAll('[data-parallax]');
   
   parallaxElements.forEach(el => {
-    const parallaxValue = scrolled * 0.5;
+    // Reduced parallax value (0.2 instead of 0.5) keeps image visible longer
+    const parallaxValue = scrolled * 0.2;
     el.style.transform = `translateY(${parallaxValue}px)`;
   });
   
-  // Sticky header visibility
+  // Sticky header visibility - show after more scroll
   const header = document.querySelector('.sticky-header');
   if (header) {
-    if (scrolled > 100) {
+    if (scrolled > 300) {
       header.classList.add('visible');
     } else {
       header.classList.remove('visible');
