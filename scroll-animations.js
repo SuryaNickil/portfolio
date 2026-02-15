@@ -1,21 +1,32 @@
-// Intersection Observer for scroll animations
+// Enhanced Intersection Observer for scroll animations
 const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
+  threshold: 0.15,
+  rootMargin: '0px 0px -80px 0px'
 };
 
 const observer = new IntersectionObserver(function(entries) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
+      // Add animate-in class to trigger animation
       entry.target.classList.add('animate-in');
-      observer.unobserve(entry.target);
+      // Optional: remove observer to save resources
+      // observer.unobserve(entry.target);
     }
   });
 }, observerOptions);
 
-// Observe all sections and elements with animation classes
-document.querySelectorAll('section, .project-card, .job, h2, p').forEach(el => {
-  observer.observe(el);
+// Observe all elements that should animate on scroll
+document.addEventListener('DOMContentLoaded', () => {
+  // Select all sections, cards, jobs, and text elements
+  const elementsToObserve = document.querySelectorAll(
+    'section, .project-card, .job, h2, h3, p, .skill-category'
+  );
+  
+  elementsToObserve.forEach(el => {
+    observer.observe(el);
+  });
+  
+  console.log(`✓ Observing ${elementsToObserve.length} elements for scroll animations`);
 });
 
 // Parallax effect on scroll
@@ -27,7 +38,17 @@ window.addEventListener('scroll', () => {
     const parallaxValue = scrolled * 0.5;
     el.style.transform = `translateY(${parallaxValue}px)`;
   });
-});
+  
+  // Sticky header visibility
+  const header = document.querySelector('.sticky-header');
+  if (header) {
+    if (scrolled > 100) {
+      header.classList.add('visible');
+    } else {
+      header.classList.remove('visible');
+    }
+  }
+}, { passive: true });
 
 // Smooth scroll offset for sticky header
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
