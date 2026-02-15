@@ -515,7 +515,8 @@ footer {
     font-size: 22px;
     font-weight: 600;
     margin: 0 0 12px 0;
-    color: #ffffff;
+    color: #ffffff !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 .tech-stack {
