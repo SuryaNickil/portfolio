@@ -455,18 +455,19 @@ footer {
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.08);
+    background: #111111;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     padding: 32px;
     transition: all 0.3s var(--transition);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     flex-direction: column;
-    min-height: 400px;
+    min-height: auto;
+    z-index: 2;
 }
 
 .project-card::before {
