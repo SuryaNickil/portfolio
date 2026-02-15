@@ -84,6 +84,9 @@ body::before {
     background: var(--bg-glass);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: fadeInUp 1.2s var(--transition) 0s forwards;
 }
 
 @media (max-width: 768px) {
@@ -118,33 +121,29 @@ body::before {
 
 /* Fade-in Animations */
 .fade-in {
-    animation: fadeIn 1.2s var(--transition) forwards;
-    opacity: 0;
+    animation: fadeInUp 1.2s var(--transition) 0s forwards;
 }
 
 .fade-in-delay {
-    animation: fadeIn 1.2s var(--transition) 0.3s forwards;
-    opacity: 0;
+    animation: fadeInUp 1.2s var(--transition) 0.3s forwards;
 }
 
 .fade-in-delay-2 {
-    animation: fadeIn 1.2s var(--transition) 0.6s forwards;
-    opacity: 0;
+    animation: fadeInUp 1.2s var(--transition) 0.6s forwards;
 }
 
 .fade-in-delay-3 {
-    animation: fadeIn 1.2s var(--transition) 0.9s forwards;
-    opacity: 0;
+    animation: fadeInUp 1.2s var(--transition) 0.9s forwards;
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -627,6 +626,12 @@ section {
 section.animate-in {
     opacity: 1;
     animation-play-state: running;
+}
+
+/* Hero section always visible immediately */
+.hero {
+    opacity: 1 !important;
+    animation: none !important;
 }
 
 .project-card,

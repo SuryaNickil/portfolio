@@ -17,16 +17,23 @@ const observer = new IntersectionObserver(function(entries) {
 
 // Observe all elements that should animate on scroll
 document.addEventListener('DOMContentLoaded', () => {
+  // Always make hero visible immediately
+  const heroSection = document.querySelector('.hero');
+  if (heroSection) {
+    heroSection.classList.add('animate-in');
+    heroSection.style.opacity = '1';
+  }
+  
   // Select all sections, cards, jobs, and text elements
   const elementsToObserve = document.querySelectorAll(
-    'section, .project-card, .job, h2, h3, p, .skill-category'
+    'section:not(.hero), .project-card, .job, h2, h3, p, .skill-category'
   );
   
   elementsToObserve.forEach(el => {
     observer.observe(el);
   });
   
-  console.log(`✓ Observing ${elementsToObserve.length} elements for scroll animations`);
+  console.log(`✓ Hero visible. Observing ${elementsToObserve.length} elements for scroll animations`);
 });
 
 // Parallax effect on scroll - slower parallax to keep hero visible longer
