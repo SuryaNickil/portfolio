@@ -497,6 +497,14 @@ footer {
 .project-card > * {
     position: relative;
     z-index: 1;
+    color: white !important;
+}
+
+.project-card p, .project-card h3, .project-card li {
+    color: white !important;
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
 }
 
 .project-header {
@@ -553,8 +561,9 @@ footer {
     content: '→';
     position: absolute;
     left: 0;
-    color: var(--accent);
+    color: #0a84ff;
     font-weight: 600;
+    display: block;
 }
 
 .project-links {
