@@ -455,10 +455,10 @@ footer {
 }
 
 .project-card {
-    background: var(--bg-glass);
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
     padding: 32px;
     transition: all 0.3s var(--transition);
@@ -466,6 +466,7 @@ footer {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    min-height: 400px;
 }
 
 .project-card::before {
@@ -505,7 +506,7 @@ footer {
     font-size: 22px;
     font-weight: 600;
     margin: 0 0 12px 0;
-    color: var(--text);
+    color: #ffffff;
 }
 
 .tech-stack {
@@ -516,17 +517,17 @@ footer {
 
 .tech-badge {
     display: inline-block;
-    background: rgba(10, 132, 255, 0.2);
-    color: var(--accent);
+    background: rgba(10, 132, 255, 0.15);
+    color: #0a84ff;
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 12px;
     font-weight: 500;
-    border: 1px solid rgba(10, 132, 255, 0.3);
+    border: 1px solid rgba(10, 132, 255, 0.5);
 }
 
 .project-description {
-    color: var(--text-secondary);
+    color: #d1d1d6;
     margin-bottom: 20px;
     line-height: 1.6;
     font-size: 15px;
@@ -540,7 +541,7 @@ footer {
 }
 
 .project-features li {
-    color: var(--text-secondary);
+    color: #c1c1c6;
     font-size: 14px;
     padding: 8px 0;
     padding-left: 24px;
